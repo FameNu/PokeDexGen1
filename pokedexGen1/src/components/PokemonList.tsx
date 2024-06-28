@@ -9,7 +9,7 @@ function PokemonList() {
   const [inputSearchName, setInputSearchName] = useState('')
 
   const findByKeyword = async (keyword: string) => {
-    const response = await axios.post(`${url}search`, {
+    const response = await axios.post(`${url}/search`, {
       keyword: keyword
     })
     setPokemonList(response.data.pokemonList)
