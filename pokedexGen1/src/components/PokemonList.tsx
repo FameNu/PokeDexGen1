@@ -2,7 +2,7 @@ import axios from "axios"
 import { ChangeEvent, useEffect, useState } from 'react'
 import PokemonCard from "./PokemonCard"
 
-const url: string = 'http://localhost:3000/'
+const url: string = import.meta.env.VITE_BASE_URL as string
 
 function PokemonList() {
   const [pokemonList, setPokemonList] = useState([])
