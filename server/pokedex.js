@@ -9,7 +9,8 @@ const app = express();
 
 const allowOrigin = [
   'http://localhost:5173',
-  'http://lvm65066.sit.kmutt.ac.th:80'
+  'http://localhost:80',
+  'http://lvm65066.sit.kmutt.ac.th',
 ];
 
 const corsOptions = {
