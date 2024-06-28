@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const { servicePokemon } = require('./data/services.js');
 const managePokemon = servicePokemon();
 
-const port = 3000;
+const port = 5000;
 const app = express();
 
 const allowOrigin = [
