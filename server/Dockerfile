@@ -7,4 +7,4 @@ RUN npm install
 COPY data/ data/
 COPY pokedex.js ./
 
-RUN node pokedex.js
+CMD ["npm", "start"]

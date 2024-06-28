@@ -1,4 +1,11 @@
 {
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "A simple Node.js backend",
+  "main": "pokedex.js",
+  "scripts": {
+    "start": "node pokedex.js"
+  },
   "dependencies": {
     "body-parser": "^1.20.2",
     "express": "^4.19.2",
