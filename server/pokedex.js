@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const { servicePokemon } = require('./data/services.js');
 const managePokemon = servicePokemon();
 
@@ -11,19 +12,31 @@ const allowOrigin = [
   'http://lvm65066.sit.kmutt.ac.th:80'
 ];
 
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowOrigin.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+    optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-  if (allowOrigin.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-  }
-  //   res.header('Access-Control-Allow-Origin', '*');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  );
-  next();
-});
+// app.use((req, res, next) => {
+//   const origin = req.headers.origin;
+//   if (allowOrigin.includes(origin)) {
+//     res.header('Access-Control-Allow-Origin', origin);
+//   }
+//   //   res.header('Access-Control-Allow-Origin', '*');
+//   res.header(
+//     'Access-Control-Allow-Headers',
+//     'Origin, X-Requested-With, Content-Type, Accept'
+//   );
+//   next();
+// });
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
