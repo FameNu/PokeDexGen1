@@ -1,0 +1,11 @@
+services:
+  fe:
+    build: ./pokedexGen1
+    restart: unless-stopped
+    ports:
+      - "80:80"
+  be:
+    build: ./server
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
